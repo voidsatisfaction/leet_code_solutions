@@ -1,6 +1,11 @@
 from typing import List
 import heapq
 
+# input
+# [[1,4,5],[1,3,4],[2,6]]
+# output
+# [1,1,2,3,4,4,5,6]
+
 class ListNode:
   def __init__(self, x):
     self.val = x
