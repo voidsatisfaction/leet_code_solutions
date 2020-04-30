@@ -1,5 +1,11 @@
 from typing import List
 
+"""
+Subsets
+
+Given a set of distinct integers, nums, return all possible subsets (the power set).
+"""
+
 # mathematical solution
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
