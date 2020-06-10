@@ -12,16 +12,14 @@ class MedianFinder:
             self._is_even = not self._is_even
             return
         
-        max_heap_top = heappop(self._max_heap)
+        max_heap_top = self._max_heap[0]
 
         if num <= -max_heap_top:
-            heappush(self._max_heap, max_heap_top)
             heappush(self._max_heap, -num)
             if len(self._max_heap) - len(self._min_heap) == 2:
                 max_heap_top = heappop(self._max_heap)
                 heappush(self._min_heap, -max_heap_top)
         else:
-            heappush(self._max_heap, max_heap_top)
             heappush(self._min_heap, num)
             if len(self._min_heap) - len(self._max_heap) == 1:
                 min_heap_top = heappop(self._min_heap)
@@ -35,19 +33,9 @@ class MedianFinder:
             return 0
 
         if self._is_even is True:
-            max_heap_top = heappop(self._max_heap)
-            min_heap_top = heappop(self._min_heap)
-
-            heappush(self._max_heap, max_heap_top)
-            heappush(self._min_heap, min_heap_top)
-
-            return (-max_heap_top + min_heap_top) / 2
+            return (-self._max_heap[0] + self._min_heap[0]) / 2
         else:
-            max_heap_top = heappop(self._max_heap)
-
-            heappush(self._max_heap, max_heap_top)
-
-            return -max_heap_top
+            return -self._max_heap[0]
 
 
 if __name__ == '__main__':
