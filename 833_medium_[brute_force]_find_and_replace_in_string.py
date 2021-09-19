@@ -19,14 +19,6 @@ class Solution:
             if should_replace_target_list[j] is True:
                 answer += target
                 i += len(source)
-            else:
-                if j == len(index_source_target_iterator)-1:
-                    answer += s[i:]
-                    i = len(s)
-                else:
-                    next_index = index_source_target_iterator[j+1][0]
-                    answer += s[i:next_index]
-                    i = next_index
 
         answer += s[i:]
 
